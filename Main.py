@@ -11,8 +11,9 @@ import os
 
 def authenticate_and_run(sec):
     res = requests.post('https://metabase-lierhfgoeiwhr.newtonschool.co/api/session',
-                        headers={"Content-Type": "application/json"},
-                        json={"username": 'your-email@example.com', "password": sec})
+                    headers = {"Content-Type": "application/json"},
+                    json =  {"username": 'prabhat.kumar@newtonschool.co',
+                             "password": sec}
     if not res.ok:
         raise Exception("Failed to authenticate")
     return res.json()['id']
@@ -52,11 +53,11 @@ if __name__ == "__main__":
     creds = Credentials.from_service_account_file(args.service_account_file, scopes=SCOPES)
     gc = gspread.authorize(creds)
 
-    sec = os.getenv('ASHRITHA_SECRET_KEY')
+    sec = os.getenv('Prabhat_Secret_Key')
     token = authenticate_and_run(sec)
 
     updates = [
-        {"metabase_card_id": 7584, "worksheet_name": "Coding", "spreadsheet_key": "your-sheet-key"},
+        {"metabase_card_id": 8484, "worksheet_name": "Auto Raw Dump", "spreadsheet_key": "1QCyzrW-Jd5Ny43F7ck7Pk2kJa4nVf7a1KovPj3d8S4c"},
         # Add other update mappings here
     ]
     for update in updates:
